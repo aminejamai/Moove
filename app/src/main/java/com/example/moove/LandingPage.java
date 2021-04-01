@@ -8,8 +8,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textview.MaterialTextView;
+import com.google.android.material.transition.MaterialSharedAxis;
 
 public class LandingPage extends Fragment {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setExitTransition(new MaterialSharedAxis(MaterialSharedAxis.Z, true));
+        setReenterTransition(new MaterialSharedAxis(MaterialSharedAxis.Z, false));
+    }
 
     @Override
     public View onCreateView(
@@ -17,10 +26,14 @@ public class LandingPage extends Fragment {
 
         View view = inflater.inflate(R.layout.landing_page, container, false);
 
-        MaterialButton getStartedButton = view.findViewById(R.id.lp_get_started);
+        MaterialButton getStartedButton = view.findViewById(R.id.land_page_get_started);
         getStartedButton.setOnClickListener(view1 -> ((NavigationHost) getActivity())
                 .navigateTo(new LoginPage(), false));
 
+        MaterialTextView tosText = view.findViewById(R.id.land_page_terms);
+        tosText.setOnClickListener(view2 -> ((NavigationHost) getActivity())
+                .navigateTo(new TosPage(), true));
+        
         return view;
     }
 }
