@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.example.moove.DashboardActivity"
+            android:label="@string/dashboard" />
     </application>
 
 </manifest>
