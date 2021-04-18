@@ -23,6 +23,10 @@
         <activity
             android:name="com.example.moove.DashboardActivity"
             android:label="@string/dashboard" />
+
+        <activity
+            android:name="com.example.moove.ChallengesActivity"
+            android:label="challenges" />
     </application>
 
 </manifest>

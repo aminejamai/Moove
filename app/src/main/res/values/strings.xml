@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Moove</string>
     <string name="dashboard">dashboard</string>
+    <string name="numberOfGuests">1</string>
 </resources>

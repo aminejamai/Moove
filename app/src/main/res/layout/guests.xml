@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@drawable/form_guests"
+    android:padding="5dp"
+    android:layout_gravity="bottom"
+    android:gravity="bottom">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="Maximum guests?"
+        android:textColor="#456"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="center">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/decrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/minus_guest"
+            android:layout_marginHorizontal="40dp"/>
+        <TextView
+            android:id="@+id/showNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/numberOfGuests"
+            android:textSize="42dp"
+            android:layout_marginHorizontal="40dp" />
+        <ImageView
+            android:id="@+id/increment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/plus_guest"
+            android:layout_marginHorizontal="40dp"
+            android:onClick="increment"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/guestsNumberNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_marginTop="25dp"
+        android:onClick="dismiss"/>
+</LinearLayout>

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button dashboard ;
     Button authBtn;
+    Button challenges;
     TextView authText;
 
     private Executor executor;
@@ -38,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
                 //setContentView(R.layout.dashboard);
                 //new DashboardActivity();
                 startActivity(new Intent(MainActivity.this, DashboardActivity.class));
+            }
+        });
+
+        challenges = findViewById(R.id.lunch_challenges);
+
+        challenges.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ChallengesActivity.class));
             }
         });
 
