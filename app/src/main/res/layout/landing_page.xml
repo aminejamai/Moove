@@ -4,28 +4,41 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_landing_page"
     tools:context=".LandingPage">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_landing_page"
-        tools:context=".LandingPage">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_65sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_fitness_vector" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/land_page_title_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_210sdp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:gravity="center_horizontal"
             android:text="@string/land_page_title_1"
-            android:textColor="@color/black"
+            android:textColor="@color/on_secondary"
             android:textSize="@dimen/_14ssp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/land_page_title_2"
@@ -33,7 +46,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="@string/land_page_title_2"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/primary"
             android:textSize="@dimen/_27ssp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +81,7 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="@dimen/_3ssp"
             android:text="@string/land_page_main_text"
-            android:textColor="@color/black"
+            android:textColor="@color/on_secondary"
             android:textSize="@dimen/_13ssp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,12 +98,13 @@
             android:layout_marginTop="@dimen/_50sdp"
             android:layout_marginEnd="@dimen/_31sdp"
             android:layout_marginRight="@dimen/_31sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
             android:text="@string/land_page_get_started"
+            android:textColor="@color/on_primary"
             android:textSize="@dimen/_16sdp"
-            android:textColor="@color/white"
             android:textStyle="bold"
-            android:transitionName="land_page_to_login"
-            app:backgroundTint="@color/purple_500"
+            app:backgroundTint="@color/primary"
+            app:layout_constraintBottom_toTopOf="@+id/land_page_notice"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -102,31 +116,31 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_63sdp"
             android:layout_marginLeft="@dimen/_63sdp"
-            android:layout_marginTop="@dimen/_44sdp"
+            android:layout_marginBottom="@dimen/_25sdp"
             android:gravity="center_horizontal"
             android:text="@string/land_page_notice"
             android:textColor="@android:color/darker_gray"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/land_page_get_started" />
+            app:layout_constraintBottom_toTopOf="@+id/land_page_view_2"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/land_page_terms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_44sdp"
             android:layout_marginEnd="@dimen/_56sdp"
             android:layout_marginRight="@dimen/_56sdp"
+            android:layout_marginBottom="@dimen/_25sdp"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center_horizontal"
             android:text="@string/land_page_terms"
-            android:textColor="@color/purple_500"
+            android:textColor="@color/primary"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/land_page_view_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.32"
-            app:layout_constraintStart_toEndOf="@+id/land_page_notice"
-            app:layout_constraintTop_toBottomOf="@+id/land_page_get_started" />
+            app:layout_constraintStart_toEndOf="@+id/land_page_notice" />
 
         <View
             android:id="@+id/land_page_view_2"
@@ -134,7 +148,6 @@
             android:layout_height="@dimen/_2ssp"
             android:layout_marginStart="@dimen/_115sdp"
             android:layout_marginLeft="@dimen/_115sdp"
-            android:layout_marginTop="@dimen/_22sdp"
             android:layout_marginEnd="@dimen/_115sdp"
             android:layout_marginRight="@dimen/_115sdp"
             android:layout_marginBottom="@dimen/_20sdp"
@@ -142,9 +155,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/land_page_notice"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

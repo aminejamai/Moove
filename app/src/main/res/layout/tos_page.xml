@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/on_primary"
         tools:context=".LandingPage">
 
         <com.google.android.material.textview.MaterialTextView
@@ -19,7 +19,7 @@
             android:layout_marginTop="@dimen/_23sdp"
             android:gravity="center_horizontal"
             android:text="@string/tos_page_title"
-            android:textColor="@color/black"
+            android:textColor="@color/on_secondary"
             android:textSize="@dimen/_30ssp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,7 +36,7 @@
             android:layout_marginTop="@dimen/_19sdp"
             android:layout_marginEnd="@dimen/_23sdp"
             android:layout_marginRight="@dimen/_23sdp"
-            android:textColor="@color/black"
+            android:textColor="@color/on_secondary"
             android:textSize="@dimen/_10ssp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

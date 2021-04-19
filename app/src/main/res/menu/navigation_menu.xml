@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="User">
+        <menu>
+            <item android:title="Profile" android:icon="@drawable/ic_profile_icon"/>
+            <item android:title="Challenges" android:icon="@drawable/ic_challenge_icon"/>
+        </menu>
+    </item>
+
+    <item android:title="Application">
+        <menu>
+            <item android:title="Settings" android:icon="@drawable/ic_settings_icon"/>
+            <item android:title="Logout" android:icon="@drawable/ic_logout_icon"/>
+        </menu>
+    </item>
+
+</menu>

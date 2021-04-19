@@ -1,25 +1,25 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="428dp"
+    android:width="430dp"
     android:height="926dp"
-    android:viewportWidth="428"
+    android:viewportWidth="430"
     android:viewportHeight="926">
   <group>
     <clip-path
-        android:pathData="M0,0h428v926h-428z"/>
+        android:pathData="M0,0h430v926h-430z"/>
     <path
-        android:pathData="M0,0h428v926h-428z"
+        android:pathData="M0,0h430v926h-430z"
         android:fillColor="#fff"/>
     <path
-        android:pathData="M392,693m-325,0a325,325 0,1 1,650 0a325,325 0,1 1,-650 0"
-        android:strokeAlpha="0.298"
-        android:fillAlpha="0.298">
+        android:pathData="M140,978m-325,0a325,325 0,1 1,650 0a325,325 0,1 1,-650 0"
+        android:strokeAlpha="0.447"
+        android:fillAlpha="0.447">
       <aapt:attr name="android:fillColor">
         <gradient 
-            android:startY="804.15"
-            android:startX="819.7"
-            android:endY="1018"
-            android:endX="638.35"
+            android:startY="1089.15"
+            android:startX="567.7"
+            android:endY="1303"
+            android:endX="386.35"
             android:type="linear">
           <item android:offset="0" android:color="#67AFC3FD"/>
           <item android:offset="1" android:color="#FFAFC3FD"/>
@@ -27,15 +27,15 @@
       </aapt:attr>
     </path>
     <path
-        android:pathData="M-84,14a103,99 0,1 0,206 0a103,99 0,1 0,-206 0z"
+        android:pathData="M87,16m-150,0a150,150 0,1 1,300 0a150,150 0,1 1,-300 0"
         android:strokeAlpha="0.298"
         android:fillAlpha="0.298">
       <aapt:attr name="android:fillColor">
         <gradient 
-            android:startY="47.858"
-            android:startX="154.548"
-            android:endY="113"
-            android:endX="97.074"
+            android:startY="67.3"
+            android:startX="284.4"
+            android:endY="166"
+            android:endX="200.7"
             android:type="linear">
           <item android:offset="0" android:color="#67AFC3FD"/>
           <item android:offset="1" android:color="#FFAFC3FD"/>

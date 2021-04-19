@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "281918253813",
+    "project_id": "moove-448b7",
+    "storage_bucket": "moove-448b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281918253813:android:edf6b0a70d1d069b6ab3bc",
+        "android_client_info": {
+          "package_name": "com.example.moove"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281918253813-1d7g03dhrnv8rbakf6oeoi2193f49u71.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moove",
+            "certificate_hash": "adf9ed3146a2082b2a5673830d82c6f308f4c20a"
+          }
+        },
+        {
+          "client_id": "281918253813-gh0hgral9h697cdmd4gtiocjtnotgm6t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moove",
+            "certificate_hash": "3b92144d55a731debcb01d5ef7a205536e9f7933"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFPT-qOxNiNeP2Zfds2r5YZJ0Rk82EIbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281918253813-mumd3ip1ssk36c1a2qt4jkp8fav5t40s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
