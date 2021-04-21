@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="327dp"
+    android:layout_height="226dp"
+    android:background="@drawable/bg_raduis"
+    android:padding="5dp"
+
+    android:layout_gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="12dp"
+        android:text="Create a new challenge"
+        android:textColor="#456"
+        android:textSize="20sp"
+        android:textStyle="bold">
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="Create a new challenge for you and your friends. Feel free to invite whomever you like."
+        android:textColor="#456"
+        android:textSize="17sp"
+        android:textStyle="italic"
+        >
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12dp"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/close_btn"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/btn_rounded_cancel"
+            android:text="Cancel"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/new_challenge_next_btn"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/btn_rounded"
+            android:text="Next"
+            android:textStyle="bold"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

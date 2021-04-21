@@ -1,4 +1,4 @@
-package com.example.moove;
+package com.example.moove.navigation;
 
 import androidx.fragment.app.Fragment;
 

@@ -1,5 +1,7 @@
-package com.example.moove;
+package com.example.moove.fragments;
 
+import android.app.ProgressDialog;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,13 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.moove.R;
+import com.example.moove.database.DBManager;
+import com.example.moove.exceptions.UninitializedDatabaseException;
+import com.example.moove.models.User;
+import com.example.moove.navigation.NavigationHost;
+import com.example.moove.utilities.JsonFormatter;
+import com.example.moove.utilities.ProgressBar;
 import com.facebook.*;
 import com.facebook.CallbackManager;
 import com.facebook.login.LoginResult;
@@ -24,7 +33,14 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.transition.MaterialSharedAxis;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.*;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.Map;
+import java.util.Objects;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
@@ -45,10 +61,6 @@ public class LoginPage extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null)
-            ((NavigationHost) LoginPage.this.getActivity()).navigateTo(new DashboardPage(), false);
     }
 
     public View onCreateView(
@@ -86,18 +98,22 @@ public class LoginPage extends Fragment {
     private void handleFacebookAccessToken(AccessToken token) {
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
-            .addOnCompleteListener(LoginPage.this.getActivity(), new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        ((NavigationHost) LoginPage.this.getActivity()).navigateTo(new DashboardPage(), false);
-                        Toast.makeText(getApplicationContext(), "logged successfully using facebook", Toast.LENGTH_SHORT).show();
+            .addOnCompleteListener(Objects.requireNonNull(LoginPage.this.getActivity()), task -> {
+                if (task.isSuccessful()) {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    User.currentUser = new User(user.getUid(), user.getEmail(),
+                        user.getDisplayName(), user.getPhoneNumber(), user.getPhotoUrl(),
+                        0, 0, new Timestamp(0, 0));
+                    try {
+                        DBManager.getInstance().createUser(User.currentUser);
+                    } catch (UninitializedDatabaseException e) {
+                        Log.e("DatabaseException", e.getMessage());
                     }
-                    else {
-                        Toast.makeText(getApplicationContext(), "failed facebook", Toast.LENGTH_SHORT).show();
-                    }
+                    ((NavigationHost) LoginPage.this.getActivity()).navigateTo(
+                        new DashboardPage(), false);
                 }
+                else
+                    Log.e("Facebook Auth", "Failed to authenticate");
             });
     }
 
@@ -133,15 +149,23 @@ public class LoginPage extends Fragment {
     }
 
     private void firebaseAuthWithGoogle(String IdToken) {
+        ProgressDialog progressDialog = ProgressBar.createCircularDialog(getContext());
         AuthCredential credential = GoogleAuthProvider.getCredential(IdToken, null);
         mAuth.signInWithCredential(credential)
-            .addOnCompleteListener(LoginPage.this.getActivity(), new OnCompleteListener() {
-                @Override
-                public void onComplete(@NonNull Task task) {
-                    if (task.isSuccessful()) {
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        ((NavigationHost) LoginPage.this.getActivity()).navigateTo(new DashboardPage(), false);
+            .addOnCompleteListener(Objects.requireNonNull(LoginPage.this.getActivity()), task -> {
+                if (task.isSuccessful()) {
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    User.currentUser = new User(user.getUid(), user.getEmail(),
+                        user.getDisplayName(), user.getPhoneNumber(), user.getPhotoUrl(),
+                        0, 0, new Timestamp(0, 0));
+                    try {
+                        DBManager.getInstance().createUser(User.currentUser);
+                    } catch (UninitializedDatabaseException e) {
+                        Log.e("DatabaseException", e.getMessage());
                     }
+                    progressDialog.dismiss();
+                    ((NavigationHost) LoginPage.this.getActivity()).navigateTo(
+                        new DashboardPage(), false);
                 }
             });
     }

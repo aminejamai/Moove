@@ -1,12 +1,13 @@
-package com.example.moove;
+package com.example.moove.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,11 +18,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.moove.R;
+import com.example.moove.models.User;
+import com.example.moove.navigation.NavigationHost;
+import com.example.moove.utilities.CircleCropTransform;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.transition.MaterialSharedAxis;
 
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
 
 public class DashboardPage extends Fragment implements OnNavigationItemSelectedListener {
 
@@ -94,12 +100,19 @@ public class DashboardPage extends Fragment implements OnNavigationItemSelectedL
         NavigationView navigationView = view.findViewById(R.id.navigation_view);
         CoordinatorLayout frame = view.findViewById(R.id.dash_content_frame);
 
+        View headerView = navigationView.getHeaderView(0);
+        ((TextView) headerView.findViewById(R.id.nav_email)).setText(User.currentUser.getEmail());
+        ((TextView) headerView.findViewById(R.id.nav_username))
+            .setText(User.currentUser.getUsername());
+        Picasso.get().load(User.currentUser.getPhotoUrl()).transform(new CircleCropTransform())
+            .into((ImageView) headerView.findViewById(R.id.nav_profile_pic));
+
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
-                DashboardPage.this.getActivity(),
-                drawerLayout,
-                toolbar,
-                R.string.open_navigation_drawer,
-                R.string.close_navigation_drawer
+            DashboardPage.this.getActivity(),
+            drawerLayout,
+            toolbar,
+            R.string.open_navigation_drawer,
+            R.string.close_navigation_drawer
         ) {
             @SuppressLint("NewApi")
             public void onDrawerSlide(View drawerView, float slideOffset)

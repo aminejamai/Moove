@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="25dp"
+    android:background="@drawable/form_guests"
+    android:layout_gravity="bottom">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="Maximum guests ?"
+        android:textColor="#456"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:paddingTop="34dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/decrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/minus_guest"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_marginHorizontal="40dp"/>
+        <TextView
+            android:id="@+id/showNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="42sp"
+            android:layout_marginHorizontal="40dp" />
+        <ImageView
+            android:id="@+id/increment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/plus_guest"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_marginHorizontal="40dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/guestsNumberNext"
+        android:background="@drawable/btn_rounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="#8A56AC"
+        android:text="Next"
+        android:layout_marginTop="55dp" />
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.moove;
+package com.example.moove.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.example.moove.R;
 
 public class ShareFragment extends Fragment {
     @Override

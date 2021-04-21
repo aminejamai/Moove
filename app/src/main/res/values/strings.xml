@@ -21,6 +21,8 @@
     <string name="login_page_title_1">Sign In</string>
     <string name="login_page_title_2">Login with your account</string>
 
+    <string name="numberOfGuests">1</string>
+
     <string name="open_navigation_drawer">Navigation Drawer Open</string>
     <string name="close_navigation_drawer">Navigation Drawer Close</string>
 </resources>

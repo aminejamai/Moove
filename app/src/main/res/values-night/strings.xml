@@ -17,4 +17,6 @@
     <string name="login_page_title_2">Login with your account</string>
     <string name="facebook_app_id">1:281918253813:android:edf6b0a70d1d069b6ab3bc</string>
     <string name="server_client_id">281918253813-1d7g03dhrnv8rbakf6oeoi2193f49u71.apps.googleusercontent.com</string>
+
+    <string name="numberOfGuests">1</string>
 </resources>
