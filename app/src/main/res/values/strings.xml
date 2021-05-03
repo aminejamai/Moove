@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">moove</string>
-    <string name="facebook_app_id">491999238488523</string> <string name="fb_login_protocol_scheme">fb491999238488523</string>
+    <string name="facebook_app_id">491999238488523</string>
+    <string name="fb_login_protocol_scheme">fb491999238488523</string>
 
     <string name="server_client_id">281918253813-mumd3ip1ssk36c1a2qt4jkp8fav5t40s.apps.googleusercontent.com</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
+
+
+
+
+        

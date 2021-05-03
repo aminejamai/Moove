@@ -1,21 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="#8909A0">
+
 
     <TextView
-            android:text="TextView"
+            android:text="Your workout summary"
             android:layout_width="match_parent"
-            android:layout_height="61dp" android:id="@+id/name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:layout_height="95dp" android:id="@+id/name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:background="#FFFFFF" android:gravity="center"
+            tools:layout_editor_absoluteX="0dp" app:layout_constraintBottom_toTopOf="@+id/mail"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.0"/>
     <TextView
-            android:text="TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/mail"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
-    <Button
-            android:text="Log out"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/logout" android:background="#FFEB3B"/>
-</LinearLayout>
+            android:text="Time elapsed"
+            android:textColor="#FFFFFF"
+            android:layout_width="289dp"
+            android:layout_height="46dp" android:id="@+id/mail"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.529" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:text="Total steps :"
+            android:layout_width="217dp"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_height="45dp" android:id="@+id/totalSteps"
+            app:layout_constraintTop_toBottomOf="@+id/mail"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.177"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
+    <ImageView
+            android:layout_width="145dp"
+            android:layout_height="165dp" app:srcCompat="@mipmap/workout"
+            android:id="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/name" app:layout_constraintBottom_toTopOf="@+id/mail"
+            app:layout_constraintVertical_bias="0.647" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

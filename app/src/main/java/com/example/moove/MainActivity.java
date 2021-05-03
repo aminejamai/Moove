@@ -1,7 +1,6 @@
 package com.example.moove;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -10,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.facebook.*;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.CallbackManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -37,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-
+        //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         FirebaseUser user = mAuth.getCurrentUser();
         if(user!=null){
-            Intent intent = new Intent(getApplicationContext(),Profile.class);
+            Intent intent = new Intent(getApplicationContext(), myWorkout.class);
             startActivity(intent);
         }
 
@@ -109,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                             //Log.d(TAG, "signInWithCredential:success");
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(),Profile.class);
+                            Intent intent = new Intent(getApplicationContext(), myWorkout.class);
                             startActivity(intent);
                             Toast.makeText(MainActivity.this, "logged successfully using facebook", Toast.LENGTH_SHORT).show();
                         } else {
@@ -160,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
 
                 firebaseAuthWithGoogle(account.getIdToken());
-                Intent intent = new Intent(getApplicationContext(),Profile.class);
+                Intent intent = new Intent(getApplicationContext(), myWorkout.class);
                 startActivity(intent);
 
             } catch (ApiException e) {
