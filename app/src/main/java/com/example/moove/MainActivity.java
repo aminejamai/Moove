@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         FirebaseUser user = mAuth.getCurrentUser();
         if(user!=null){
-            Intent intent = new Intent(getApplicationContext(), myWorkout.class);
+            Intent intent = new Intent(getApplicationContext(), myWorkoutSummary.class);
             startActivity(intent);
         }
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                             //Log.d(TAG, "signInWithCredential:success");
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(), myWorkout.class);
+                            Intent intent = new Intent(getApplicationContext(), myWorkoutSummary.class);
                             startActivity(intent);
                             Toast.makeText(MainActivity.this, "logged successfully using facebook", Toast.LENGTH_SHORT).show();
                         } else {
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
 
                 firebaseAuthWithGoogle(account.getIdToken());
-                Intent intent = new Intent(getApplicationContext(), myWorkout.class);
+                Intent intent = new Intent(getApplicationContext(), myWorkoutSummary.class);
                 startActivity(intent);
 
             } catch (ApiException e) {

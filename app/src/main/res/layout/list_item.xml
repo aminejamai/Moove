@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+
+                xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView
+            android:text="hellooo"
+            android:layout_width="221dp"
+            android:layout_height="24dp" android:id="@+id/num_steps"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.491" android:layout_marginBottom="636dp"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="220dp"
+            android:layout_height="24dp" android:id="@+id/num_distance"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/num_steps" app:layout_constraintVertical_bias="0.553"
+            app:layout_constraintStart_toEndOf="@+id/imageView3" android:layout_marginLeft="60dp"
+            android:layout_marginStart="60dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"/>
+    <ImageView
+            android:layout_width="54dp"
+            android:layout_height="67dp" app:srcCompat="@drawable/energy"
+            android:id="@+id/imageView3"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.039" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.044"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

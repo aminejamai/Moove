@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+            android:text="My workouts"
+            android:layout_width="410dp"
+            android:layout_height="66dp" android:id="@+id/myWorkouts"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" android:textSize="24sp"
+            android:fontFamily="sans-serif-medium" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.0" android:padding="10dp" android:textColor="@android:color/white"
+            android:background="#B039C9"/>
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/workouts_list"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

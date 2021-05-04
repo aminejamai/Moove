@@ -75,7 +75,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
        stepCounter.started=false;
        mybutton  = (Button) v.findViewById(R.id.button2);
        mybutton.setText("Start new exercice");
-       Intent intent = new Intent(this, myWorkout.class);
+       Intent intent = new Intent(this, myWorkoutSummary.class);
        startActivity(intent);
 
    }

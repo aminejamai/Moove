@@ -22,7 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Date;
 
 
-public class myWorkout extends AppCompatActivity {
+public class myWorkoutSummary extends AppCompatActivity {
 
 
     TextView name, mail, time;
@@ -47,14 +47,14 @@ public class myWorkout extends AppCompatActivity {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         //Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        Toast.makeText(myWorkout.this, "added with success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(myWorkoutSummary.this, "added with success", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         //Log.w(TAG, "Error adding document", e);
-                        Toast.makeText(myWorkout.this, "failure", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(myWorkoutSummary.this, "failure", Toast.LENGTH_SHORT).show();
                     }
                 });
         name = findViewById(R.id.name);

@@ -43,11 +43,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".myWorkout"   >
+        <activity android:name=".myWorkoutSummary"   >
         </activity>
 
         <activity android:name=".stepCounter">
         </activity>
+        <activity
+                android:name=".myWorkouts"
+        >     </activity>
         <meta-data
                 android:name="com.facebook.sdk.ApplicationId"
                 android:value="@string/facebook_app_id"/>
