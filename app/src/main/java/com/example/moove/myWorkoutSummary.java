@@ -1,8 +1,10 @@
 package com.example.moove;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -10,8 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import androidx.fragment.app.Fragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,12 +26,12 @@ import java.util.Date;
 public class myWorkoutSummary extends AppCompatActivity {
 
 
-    TextView name, mail, time;
+    TextView totalSteps, totalCalories, time;
     Button logout;
     private FirebaseAuth mAuth;
     FirebaseFirestore db;
     public workout myWokout;
-
+    public static final int RUNNING_METS = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,7 @@ public class myWorkoutSummary extends AppCompatActivity {
         //FirebaseUser user = mAuth.getCurrentUser();
 
         db = FirebaseFirestore.getInstance();
-        myWokout=new workout(123, 345,"JOGGING", new Date(), 23,20,"0393888487");
+        myWokout=new workout(123, 0,"JOGGING",  new Date(), stepCounter.duration,20,"0393888487");
         db.collection("workouts")
                 .add(myWokout)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -57,27 +58,32 @@ public class myWorkoutSummary extends AppCompatActivity {
                         Toast.makeText(myWorkoutSummary.this, "failure", Toast.LENGTH_SHORT).show();
                     }
                 });
-        name = findViewById(R.id.name);
-        mail = findViewById(R.id.mail);
+        //name = findViewById(R.id.Title);
+        totalSteps = findViewById(R.id.totalSteps);
+        totalCalories = findViewById(R.id.totalCalories);
        time=findViewById(R.id.timer);
 
-        mail.setText("Time elapsed:  "+ stepCounter.duration);
-        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        totalSteps.setText("Time elapsed:  "+ stepCounter.duration);
+        totalCalories.setText("Burned calories :"+ 2*60*0.0175*10+"kcal" );
+        //GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
 
 
 
 
 
-       /* logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-                System.out.println("WWWWWWWWW=====>");
-            }
-        });
-*/
+      
 
     }
+
+    public double burnedCalories(int minutes, double weight){
+        return minutes*weight*0.0175*10;
+    }
+
+    public void getWorkoutHistory(View v){
+        Intent intent = new Intent(this, myWorkouts.class);
+        startActivity(intent);
+
+    }
+
+
 }

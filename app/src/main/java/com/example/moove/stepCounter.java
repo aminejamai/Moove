@@ -32,7 +32,7 @@ import static android.content.Context.SENSOR_SERVICE;
 public class stepCounter extends Fragment implements SensorEventListener {
 
     private Context context;
-
+   public static int calories;
     // Reference to the sensor manager
 
     private SensorManager sensorManager;
@@ -42,7 +42,7 @@ public class stepCounter extends Fragment implements SensorEventListener {
     private Sensor senAccelerometer;
     private Sensor senStepCounter;
     private Sensor senStepDetector;
-  public static String duration;
+    public static String duration;
     // Properties to store step data
 
     private int stepsTaken = 0;

@@ -14,8 +14,8 @@ public class myAdapter extends RecyclerView.Adapter<com.example.moove.myAdapter.
 
     private final ArrayList workouts;
 
-    public myAdapter(ArrayList Etablissements) {
-        this.workouts = Etablissements;
+    public myAdapter(ArrayList workouts) {
+        this.workouts = workouts;
     }
 
     @Override
@@ -67,8 +67,8 @@ public class myAdapter extends RecyclerView.Adapter<com.example.moove.myAdapter.
     public void onBindViewHolder(MyViewHolder holder, int position) {
         workout Etab = (workout) workouts.get(position);
 
-        holder.steps.setText(Etab.getNumSteps());
-        holder.distance.setText((int) Etab.getDistance());
+        holder.steps.setText( "Steps :"+  String.valueOf(Etab.getNumSteps())+"      "+ "AVG Speed :"+Etab.getAverageSpeed()+ " km/h");
+        holder.distance.setText("Timer :"+String.valueOf( Etab.getDuration()));
         // holder.label.setText(Etab.getlabel());
         //holder.distance.setImageResource(Etab.getImage());
 

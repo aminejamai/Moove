@@ -8,11 +8,24 @@ public class workout {
     private int numSteps;
     private String typeOfExercise;
     private Date date;
-    private int duration;
+    private String duration;
     private int  averageSpeed;
     private String userID;
 
-    public workout(double distance, int numSteps, String typeOfExercise, Date date, int duration, int averageSpeed, String userID) {
+    @Override
+    public String toString() {
+        return "workout{" +
+                "distance=" + distance +
+                ", numSteps=" + numSteps +
+                ", typeOfExercise='" + typeOfExercise + '\'' +
+                ", date=" + date +
+                ", duration='" + duration + '\'' +
+                ", averageSpeed=" + averageSpeed +
+                ", userID='" + userID + '\'' +
+                '}';
+    }
+    private workout(){};
+    public workout(double distance, int numSteps, String typeOfExercise, Date date, String duration, int averageSpeed, String userID) {
         this.distance = distance;
         this.numSteps = numSteps;
         this.typeOfExercise = typeOfExercise;
@@ -54,11 +67,11 @@ public class workout {
         this.date = date;
     }
 
-    public int getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
@@ -77,4 +90,6 @@ public class workout {
     public void setUserID(String userID) {
         this.userID = userID;
     }
+
+
 }
