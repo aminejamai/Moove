@@ -22,7 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.*;
 
 
-public class MainActivity extends AppCompatActivity {
+public class loginPage extends AppCompatActivity {
 
 
     private GoogleSignInClient mGoogleSignInClient;
@@ -109,10 +109,10 @@ public class MainActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(getApplicationContext(), myWorkoutSummary.class);
                             startActivity(intent);
-                            Toast.makeText(MainActivity.this, "logged successfully using facebook", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(loginPage.this, "logged successfully using facebook", Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(MainActivity.this, "failed facebook", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(loginPage.this, "failed facebook", Toast.LENGTH_SHORT).show();
 
 
                         }
@@ -183,10 +183,10 @@ public class MainActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
 
                            System.out.println("XXXXXXXX======>"+ user);
-                            Toast.makeText(MainActivity.this, "Auth to firebase yey", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(loginPage.this, "Auth to firebase yey", Toast.LENGTH_SHORT).show();
 
                         } else {
-                            Toast.makeText(MainActivity.this, "Sorry auth failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(loginPage.this, "Sorry auth failed.", Toast.LENGTH_SHORT).show();
 
 
                         }

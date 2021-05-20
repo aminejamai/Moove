@@ -33,14 +33,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     LocationListener locationListener;
     public Button mybutton;
     private  TextView time;
+    private static final LatLng LOWER_MANHATTAN = new LatLng(40.722543,
+            -73.998585);
+    private static final LatLng BROOKLYN_BRIDGE = new LatLng(40.7057, -73.9964);
     private boolean started=false;
 
     public void centreMapOnLocation(Location location, String title){
 
         LatLng userLocation = new LatLng(location.getLatitude(),location.getLongitude());
+
         mMap.clear();
-        mMap.addMarker(new MarkerOptions().position(userLocation).title(title));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(userLocation,12));
+       // mMap.addMarker(new MarkerOptions().position(userLocation).title(title));
+        mMap.addMarker(new MarkerOptions().position(userLocation).title("START"));
+        //mMap.addMarker(new MarkerOptions().position(BROOKLYN_BRIDGE).title("END"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LOWER_MANHATTAN,12));
 
     }
 

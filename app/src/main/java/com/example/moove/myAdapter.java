@@ -1,10 +1,13 @@
 package com.example.moove;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -38,18 +41,23 @@ public class myAdapter extends RecyclerView.Adapter<com.example.moove.myAdapter.
             steps = itemView.findViewById(R.id.num_steps);
             distance=  itemView.findViewById(R.id.num_distance);
             //quand on click sur l'etablissement
-  /* itemView.setOnClickListener(new View.OnClickListener() {
+  itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    currentEtab = (Etablissement) Etablissements.get(getLayoutPosition());
-                    new AlertDialog.Builder(itemView.getContext())
-                            .setTitle(currentEtab.getlabel())
-                            .show();
+                    Context context=view.getContext();
+                    Intent intent = new Intent(view.getContext() , pathMap.class);
+                    context.startActivity(intent);
+
 
                 }});
-        */
+
         }
+
+
+
     }
+
+
 
 
     @Override
@@ -61,6 +69,7 @@ public class myAdapter extends RecyclerView.Adapter<com.example.moove.myAdapter.
         View view = inflater.inflate(R.layout.list_item, parent, false);
         return new MyViewHolder(view);
     }
+
 
     @Override
     //associe les données aux  vues

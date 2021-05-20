@@ -49,6 +49,8 @@
 
         <activity android:name=".myWorkouts">
         </activity>
+        <activity android:name=".pathMap">
+        </activity>
         <activity android:name=".myWorkoutSummary">
         </activity>
         <meta-data
