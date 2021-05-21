@@ -63,4 +63,16 @@
         app:layout_constraintStart_toStartOf="@+id/addChallangeBtn"
         app:layout_constraintTop_toTopOf="@+id/addChallangeBtn"
         app:srcCompat="@drawable/plus" />
+
+    <ListView
+        android:layout_width="408dp"
+        android:layout_height="478dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/addChallangeBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        app:layout_constraintVertical_bias="0.461"
+        android:id="@+id/listView1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

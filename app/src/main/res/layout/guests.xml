@@ -36,7 +36,8 @@
             android:layout_height="wrap_content"
             android:text="@string/numberOfGuests"
             android:textSize="42dp"
-            android:layout_marginHorizontal="40dp" />
+            android:layout_marginHorizontal="40dp"
+            android:textColor="#000" />
         <ImageView
             android:id="@+id/increment"
             android:layout_width="wrap_content"

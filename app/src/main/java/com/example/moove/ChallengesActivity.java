@@ -8,20 +8,47 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChallengesActivity extends AppCompatActivity {
 
     int numOfGuests=1;
     Dialog addChallenge;
     Dialog guestsNumber;
+
+    List<Test> listOfTests = new ArrayList<Test>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.challenges);
         addChallenge = new Dialog(this);
+
+        listOfTests.add(new Test("amine"));
+        listOfTests.add(new Test("hamza"));
+        listOfTests.add(new Test("soufiane"));
+        listOfTests.add(new Test("smail"));
+
+        listOfTests.add(new Test("amine"));
+        listOfTests.add(new Test("hamza"));
+        listOfTests.add(new Test("soufiane"));
+        listOfTests.add(new Test("smail"));
+
+        listOfTests.add(new Test("amine"));
+        listOfTests.add(new Test("hamza"));
+        listOfTests.add(new Test("soufiane"));
+        listOfTests.add(new Test("smail"));
+
+        ListView lsView = findViewById(R.id.listView1);
+        lsView.setAdapter(new TestAdapter(this, listOfTests));
+
     }
 
     public void ShowPopup(View v) {
