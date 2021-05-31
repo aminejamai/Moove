@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/_310sdp"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="25dp"
     android:background="@drawable/form_guests"
     android:layout_gravity="bottom">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
         android:text="Maximum guests ?"
         android:textColor="#456"
         android:textSize="28sp"
@@ -22,7 +20,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="24dp"
         android:gravity="center">
         <ImageView
             android:id="@+id/decrement"
@@ -31,14 +29,15 @@
             android:src="@drawable/minus_guest"
             android:focusable="true"
             android:clickable="true"
-            android:layout_marginHorizontal="40dp"/>
+            android:paddingStart="@dimen/_30sdp"
+            android:paddingEnd="@dimen/_30sdp" />
         <TextView
             android:id="@+id/showNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
-            android:textSize="42sp"
-            android:layout_marginHorizontal="40dp" />
+            android:layout_gravity="center"
+            android:textSize="42sp" />
         <ImageView
             android:id="@+id/increment"
             android:layout_width="wrap_content"
@@ -46,7 +45,8 @@
             android:src="@drawable/plus_guest"
             android:focusable="true"
             android:clickable="true"
-            android:layout_marginHorizontal="40dp" />
+            android:paddingStart="@dimen/_30sdp"
+            android:paddingEnd="@dimen/_30sdp" />
     </LinearLayout>
 
     <Button
@@ -55,7 +55,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
         android:backgroundTint="#8A56AC"
         android:text="Next"
-        android:layout_marginTop="55dp" />
+        android:textColor="@color/on_primary"
+        android:layout_marginTop="50dp"
+        android:paddingStart="@dimen/_30sdp"
+        android:paddingEnd="@dimen/_30sdp" />
 </LinearLayout>

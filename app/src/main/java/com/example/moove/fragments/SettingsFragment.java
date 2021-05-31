@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.moove.R;
 
-public class SettingsPage extends Fragment {
+public class SettingsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

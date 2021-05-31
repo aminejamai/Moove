@@ -19,7 +19,6 @@ import com.example.moove.database.DBManager;
 import com.example.moove.exceptions.UninitializedDatabaseException;
 import com.example.moove.models.User;
 import com.example.moove.navigation.NavigationHost;
-import com.example.moove.utilities.JsonFormatter;
 import com.example.moove.utilities.ProgressBar;
 import com.facebook.*;
 import com.facebook.CallbackManager;
@@ -30,21 +29,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.transition.MaterialSharedAxis;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.*;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.SetOptions;
 
-import java.util.Map;
 import java.util.Objects;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
-public class LoginPage extends Fragment {
+public class LoginFragment extends Fragment {
 
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 1;
@@ -92,13 +86,21 @@ public class LoginPage extends Fragment {
             }
         });
 
+        view.findViewById(R.id.debug_button).setOnClickListener(view1 -> {
+            User.currentUser = new User(null, "hamzaezzaouirahali@gmail.com",
+                "Hamza Ezzaoui Rahali", null, (Uri) null,
+                0, 0, new Timestamp(0, 0));
+            ((NavigationHost) LoginFragment.this.getActivity()).navigateTo(
+                new DashboardFragment(), false);
+        });
+
         return view;
     }
 
     private void handleFacebookAccessToken(AccessToken token) {
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
-            .addOnCompleteListener(Objects.requireNonNull(LoginPage.this.getActivity()), task -> {
+            .addOnCompleteListener(Objects.requireNonNull(LoginFragment.this.getActivity()), task -> {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
                     User.currentUser = new User(user.getUid(), user.getEmail(),
@@ -109,8 +111,8 @@ public class LoginPage extends Fragment {
                     } catch (UninitializedDatabaseException e) {
                         Log.e("DatabaseException", e.getMessage());
                     }
-                    ((NavigationHost) LoginPage.this.getActivity()).navigateTo(
-                        new DashboardPage(), false);
+                    ((NavigationHost) LoginFragment.this.getActivity()).navigateTo(
+                        new DashboardFragment(), false);
                 }
                 else
                     Log.e("Facebook Auth", "Failed to authenticate");
@@ -152,7 +154,7 @@ public class LoginPage extends Fragment {
         ProgressDialog progressDialog = ProgressBar.createCircularDialog(getContext());
         AuthCredential credential = GoogleAuthProvider.getCredential(IdToken, null);
         mAuth.signInWithCredential(credential)
-            .addOnCompleteListener(Objects.requireNonNull(LoginPage.this.getActivity()), task -> {
+            .addOnCompleteListener(Objects.requireNonNull(LoginFragment.this.getActivity()), task -> {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
                     User.currentUser = new User(user.getUid(), user.getEmail(),
@@ -164,8 +166,8 @@ public class LoginPage extends Fragment {
                         Log.e("DatabaseException", e.getMessage());
                     }
                     progressDialog.dismiss();
-                    ((NavigationHost) LoginPage.this.getActivity()).navigateTo(
-                        new DashboardPage(), false);
+                    ((NavigationHost) LoginFragment.this.getActivity()).navigateTo(
+                        new DashboardFragment(), false);
                 }
             });
     }

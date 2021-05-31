@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.example.moove.R;
 import com.google.android.material.transition.MaterialSharedAxis;
 
-public class TosPage extends Fragment {
+public class TosFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

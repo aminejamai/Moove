@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_landing_page"
-    tools:context=".fragments.LandingPage">
+    tools:context=".fragments.LandingFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             android:layout_marginLeft="@dimen/_54sdp"
             android:paddingTop="@dimen/_11sdp"
             android:paddingBottom="@dimen/_11sdp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/_7sdp"
             android:layout_marginEnd="@dimen/_54sdp"
             android:layout_marginRight="@dimen/_54sdp"
             android:layout_marginBottom="@dimen/_220sdp"
@@ -82,6 +82,24 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/google_login_button" />
+
+        <Button
+            android:id="@+id/debug_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:text="Debug"
+            android:textColor="@color/on_primary"
+            android:paddingTop="@dimen/_11sdp"
+            android:paddingBottom="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_54sdp"
+            android:layout_marginLeft="@dimen/_54sdp"
+            android:layout_marginEnd="@dimen/_54sdp"
+            android:layout_marginRight="@dimen/_54sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/facebook_login_button"
+            android:backgroundTint="@color/vivid_red" />
 
         <View
             android:id="@+id/land_page_view_2"

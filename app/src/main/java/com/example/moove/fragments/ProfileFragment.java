@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.moove.R;
 
-public class ShareFragment extends Fragment {
+public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +19,7 @@ public class ShareFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.share_fragment, container, false);
+        View view = inflater.inflate(R.layout.profile_page, container, false);
 
         return view;
     }

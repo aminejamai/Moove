@@ -29,11 +29,11 @@ import com.google.android.material.navigation.NavigationView.OnNavigationItemSel
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
-public class DashboardPage extends Fragment implements OnNavigationItemSelectedListener {
+public class DashboardFragment extends Fragment implements OnNavigationItemSelectedListener {
 
     private HomeFragment homeFragment;
-    private ShareFragment shareFragment;
-    private AboutFragment aboutFragment;
+    private WorkoutFragment workoutFragment;
+    private HeartFragment heartFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,18 +61,18 @@ public class DashboardPage extends Fragment implements OnNavigationItemSelectedL
         String title = (String) item.getTitle();
         switch (title) {
             case "Profile": {
-                ((NavigationHost) DashboardPage.this.getActivity())
-                    .navigateTo(new ProfilePage(), true);
+                ((NavigationHost) DashboardFragment.this.getActivity())
+                    .navigateTo(new ProfileFragment(), true);
                 break;
             }
             case "Challenges": {
-                ((NavigationHost) DashboardPage.this.getActivity())
-                    .navigateTo(new ChallengesPage(), true);
+                ((NavigationHost) DashboardFragment.this.getActivity())
+                    .navigateTo(new ChallengesFragment(), true);
                 break;
             }
             case "Settings": {
-                ((NavigationHost) DashboardPage.this.getActivity())
-                    .navigateTo(new SettingsPage(), true);
+                ((NavigationHost) DashboardFragment.this.getActivity())
+                    .navigateTo(new SettingsFragment(), true);
                 break;
             }
             case "Logout": {
@@ -80,8 +80,8 @@ public class DashboardPage extends Fragment implements OnNavigationItemSelectedL
                 builder.setMessage("Are you sure you want to logout ?")
                     .setPositiveButton("Yes", (dialog, which) -> {
                         FirebaseAuth.getInstance().signOut();
-                        ((NavigationHost) DashboardPage.this.getActivity())
-                            .navigateTo(new LoginPage(), false);
+                        ((NavigationHost) DashboardFragment.this.getActivity())
+                            .navigateTo(new LoginFragment(), false);
                     })
                     .setNegativeButton("No", (dialog, which) -> {
                         dialog.cancel();
@@ -104,11 +104,13 @@ public class DashboardPage extends Fragment implements OnNavigationItemSelectedL
         ((TextView) headerView.findViewById(R.id.nav_email)).setText(User.currentUser.getEmail());
         ((TextView) headerView.findViewById(R.id.nav_username))
             .setText(User.currentUser.getUsername());
-        Picasso.get().load(User.currentUser.getPhotoUrl()).transform(new CircleCropTransform())
-            .into((ImageView) headerView.findViewById(R.id.nav_profile_pic));
+        if (User.currentUser.getPhotoUrl() != null) {
+            Picasso.get().load(User.currentUser.getPhotoUrl()).transform(new CircleCropTransform())
+                .into((ImageView) headerView.findViewById(R.id.nav_profile_pic));
+        }
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(
-            DashboardPage.this.getActivity(),
+            DashboardFragment.this.getActivity(),
             drawerLayout,
             toolbar,
             R.string.open_navigation_drawer,
@@ -131,16 +133,16 @@ public class DashboardPage extends Fragment implements OnNavigationItemSelectedL
     private void bottomBarSetup(View view) {
         MeowBottomNavigation bottomNavigation = view.findViewById(R.id.bottomAppBar);
 
-        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_baseline_info_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(1, R.drawable.ic_heartbeat));
         bottomNavigation.add(new MeowBottomNavigation.Model(2, R.drawable.ic_baseline_home_24));
-        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_baseline_share_24));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3, R.drawable.ic_biking));
         bottomNavigation.setOnShowListener(item -> {
             Fragment fragment = null;
             switch (item.getId()) {
                 case 1: {
-                    if (aboutFragment == null)
-                        aboutFragment = new AboutFragment();
-                    fragment = aboutFragment;
+                    if (heartFragment == null)
+                        heartFragment = new HeartFragment();
+                    fragment = heartFragment;
                     break;
                 }
                 case 2: {
@@ -148,9 +150,9 @@ public class DashboardPage extends Fragment implements OnNavigationItemSelectedL
                     break;
                 }
                 case 3: {
-                    if (shareFragment == null)
-                        shareFragment = new ShareFragment();
-                    fragment = shareFragment;
+                    if (workoutFragment == null)
+                        workoutFragment = new WorkoutFragment();
+                    fragment = workoutFragment;
                     break;
                 }
             }
@@ -164,7 +166,7 @@ public class DashboardPage extends Fragment implements OnNavigationItemSelectedL
 
     private void loadFragment(Fragment fragment) {
         if (fragment != null) {
-            DashboardPage.this.getActivity().getSupportFragmentManager()
+            DashboardFragment.this.getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.dash_scroll_view, fragment)
                 .commit();

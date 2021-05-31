@@ -38,22 +38,24 @@
 
         <Button
             android:id="@+id/close_btn"
-            android:layout_width="98dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:background="@drawable/btn_rounded_cancel"
             android:text="Cancel"
             android:textStyle="bold"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:textColor="@color/on_primary" />
 
         <Button
             android:id="@+id/new_challenge_next_btn"
-            android:layout_width="98dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
             android:background="@drawable/btn_rounded"
             android:text="Next"
             android:textStyle="bold"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:textColor="@color/on_primary" />
     </LinearLayout>
 </LinearLayout>

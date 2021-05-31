@@ -19,4 +19,17 @@
     <string name="server_client_id">281918253813-1d7g03dhrnv8rbakf6oeoi2193f49u71.apps.googleusercontent.com</string>
 
     <string name="numberOfGuests">1</string>
+
+    <string name="open_navigation_drawer">Navigation Drawer Open</string>
+    <string name="close_navigation_drawer">Navigation Drawer Close</string>
+
+    <plurals name="measurement_output_template">
+        <item quantity="zero">%d BPM</item>
+        <item quantity="one">%d BPM</item>
+        <item quantity="other">%d BPM</item>
+    </plurals>
+
+    <string name="camera_not_found">Camera not available.</string>
+    <string name="noFlashWarning">Measurement without flash is less reliable.</string>
+    <string name="cameraPermissionRequired">Camera permission is required for this application to work.</string>
 </resources>

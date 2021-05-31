@@ -13,7 +13,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.google.android.material.transition.MaterialSharedAxis;
 
-public class LandingPage extends Fragment {
+public class LandingFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,11 +30,11 @@ public class LandingPage extends Fragment {
 
         MaterialButton getStartedButton = view.findViewById(R.id.land_page_get_started);
         getStartedButton.setOnClickListener(view1 -> ((NavigationHost) getActivity())
-                .navigateTo(new LoginPage(), false));
+                .navigateTo(new LoginFragment(), false));
 
         MaterialTextView tosText = view.findViewById(R.id.land_page_terms);
         tosText.setOnClickListener(view2 -> ((NavigationHost) getActivity())
-                .navigateTo(new TosPage(), true));
+                .navigateTo(new TosFragment(), true));
         
         return view;
     }

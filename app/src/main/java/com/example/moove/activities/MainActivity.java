@@ -1,19 +1,20 @@
 package com.example.moove.activities;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.moove.database.DBManager;
-import com.example.moove.fragments.DashboardPage;
-import com.example.moove.fragments.LandingPage;
+import com.example.moove.fragments.DashboardFragment;
+import com.example.moove.fragments.HeartFragment;
+import com.example.moove.fragments.LandingFragment;
 import com.example.moove.R;
-import com.example.moove.fragments.LoginPage;
 import com.example.moove.models.User;
 import com.example.moove.navigation.NavigationHost;
 import com.example.moove.utilities.ProgressBar;
@@ -22,8 +23,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
 
-public class MainActivity extends AppCompatActivity implements NavigationHost {
+import java.util.Objects;
 
+public class MainActivity extends AppCompatActivity implements NavigationHost {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,14 +58,14 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
                         User.currentUser.setWeight(documentSnapshot.getLong("weight"));
                         User.currentUser.setHeight(documentSnapshot.getLong("height"));
                         User.currentUser
-                                .setBirthDate(documentSnapshot.getTimestamp("birthDate"));
+                            .setBirthDate(documentSnapshot.getTimestamp("birthDate"));
                     }
 //                    Log.d("User", User.currentUser.toString());
 
                     progressDialog.dismiss();
                     getSupportFragmentManager()
                         .beginTransaction()
-                        .add(R.id.container, new DashboardPage())
+                        .add(R.id.container, new DashboardFragment())
                         .commit();
                 }
             });
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
         else if (savedInstanceState == null) {
             getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, new LandingPage())
+                .add(R.id.container, new LandingFragment())
                 .commit();
         }
     }
