@@ -313,10 +313,13 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="12dp"
         android:text="CARBS"
         android:textSize="12sp"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="485dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
