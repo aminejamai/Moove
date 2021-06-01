@@ -1,5 +1,7 @@
 package com.example.moove.database;
 
+import android.util.Log;
+
 import com.example.moove.exceptions.UninitializedDatabaseException;
 import com.example.moove.models.User;
 import com.google.firebase.firestore.CollectionReference;
@@ -52,7 +54,7 @@ public class DBManager {
         });
     }
 
-    public void updateUser(Map<String, Object> dataMap, String userId) throws UninitializedDatabaseException {
+    public void updateUser(Map<String, ?> dataMap, String userId) throws UninitializedDatabaseException {
         if (db == null)
             throw new UninitializedDatabaseException();
 
@@ -61,6 +63,8 @@ public class DBManager {
             if (task.isSuccessful()) {
                 for (DocumentSnapshot documentSnapshot : task.getResult())
                     usersCollectionRef.document(documentSnapshot.getId()).set(dataMap, SetOptions.merge());
+
+
             }
         });
     }

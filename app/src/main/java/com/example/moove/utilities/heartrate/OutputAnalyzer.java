@@ -73,6 +73,9 @@ public class OutputAnalyzer {
 
                 Thread thread = new Thread(() -> {
                     Bitmap currentBitmap = textureView.getBitmap();
+                    if (currentBitmap == null)
+                        return;
+
                     int pixelCount = textureView.getWidth() * textureView.getHeight();
                     int measurement = 0;
                     int[] pixels = new int[pixelCount];
@@ -135,7 +138,7 @@ public class OutputAnalyzer {
                     Math.round(60f * (detectedValleys - 1) / (Math.max(1, (valleys.get(valleys.size() - 1) - valleys.get(0)) / 1000f)))
                 );
 
-                sendMessage(HeartFragment.MESSAGE_UPDATE_REALTIME, currentValue);
+                sendMessage(HeartFragment.MESSAGE_UPDATE_FINAL, currentValue);
 
                 if (cameraService != null)
                     cameraService.stop();

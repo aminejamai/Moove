@@ -21,10 +21,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.moove.R;
+import com.example.moove.database.DBManager;
+import com.example.moove.exceptions.UninitializedDatabaseException;
+import com.example.moove.models.User;
 import com.example.moove.utilities.heartrate.CameraService;
 import com.example.moove.utilities.heartrate.OutputAnalyzer;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class HeartFragment extends Fragment implements ActivityCompat.OnRequestPermissionsResultCallback {
@@ -39,7 +44,7 @@ public class HeartFragment extends Fragment implements ActivityCompat.OnRequestP
     @SuppressLint("HandlerLeak")
     private Handler mainHandler;
 
-    private  CameraService cameraService;
+    private CameraService cameraService;
 
     @Override
     public void onResume() {
@@ -59,7 +64,8 @@ public class HeartFragment extends Fragment implements ActivityCompat.OnRequestP
             Surface previewSurface = new Surface(previewSurfaceTexture);
 
             // show warning when there is no flash
-            if (!getContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+            if (!Objects.requireNonNull(getContext()).getPackageManager()
+                .hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
                 Snackbar.make(
                     view.findViewById(R.id.constraintLayout),
                     getString(R.string.noFlashWarning),
@@ -92,7 +98,7 @@ public class HeartFragment extends Fragment implements ActivityCompat.OnRequestP
     }
 
     public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.heartrate_fragment, container, false);
 
@@ -108,12 +114,19 @@ public class HeartFragment extends Fragment implements ActivityCompat.OnRequestP
                     ((TextView) view.findViewById(R.id.textView)).setText(msg.obj.toString());
 
                 if (msg.what == MESSAGE_UPDATE_FINAL) {
-                    // TODO: Save heart rate value to firestore
+                    User.currentUser.setLastHeartRate(Integer.parseInt(msg.obj.toString().split(" BPM")[0]));
+
+                    Map<String, Integer> dataMap = new HashMap<>();
+                    dataMap.put("lastHeartRate", User.currentUser.getLastHeartRate());
+
+                    try {
+                        DBManager.getInstance().updateUser(dataMap, User.currentUser.getId());
+                    } catch (UninitializedDatabaseException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 if (msg.what == MESSAGE_CAMERA_NOT_AVAILABLE) {
-                    Log.println(Log.WARN, "camera", msg.obj.toString());
-
                     ((TextView) view.findViewById(R.id.textView)).setText(R.string.camera_not_found);
                     analyzer.stop();
                 }

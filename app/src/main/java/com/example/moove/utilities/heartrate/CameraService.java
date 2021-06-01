@@ -129,7 +129,8 @@ public class CameraService {
 
     public void stop() {
         try {
-            cameraDevice.close();
+            if (cameraDevice != null)
+                cameraDevice.close();
         } catch (Exception e) {
             Log.println(Log.ERROR, "camera", "cannot close camera device" + e.getMessage());
         }

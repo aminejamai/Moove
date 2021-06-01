@@ -34,5 +34,8 @@
 
     <string name="camera_not_found">Camera not available.</string>
     <string name="noFlashWarning">Measurement without flash is less reliable.</string>
-    <string name="cameraPermissionRequired">Camera permission is required for this application to work.</string>
+    <string name="cameraPermissionRequired">Camera permission is required for this feature to work.</string>
+
+    <string name="recognitionPermissionRequired">Activity recognition permission is required for this feature to work.</string>
+    <string name="locationPermissionRequired">Location permission is required for this feature to work.</string>
 </resources>

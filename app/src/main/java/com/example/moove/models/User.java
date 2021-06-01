@@ -5,7 +5,11 @@ import android.net.Uri;
 import com.example.moove.utilities.JsonFormatter;
 import com.google.firebase.Timestamp;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class User {
@@ -18,6 +22,7 @@ public class User {
     private String photoUrl;
     private long weight;
     private long height;
+    private int lastHeartRate;
     private Timestamp birthDate;
 
     public User() { }
@@ -81,6 +86,9 @@ public class User {
     }
 
     public String getPhotoUrl() {
+        if (photoUrl == null)
+            return "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1024px-Circle-icons-profile.svg.png";
+
         return photoUrl;
     }
 
@@ -112,12 +120,43 @@ public class User {
         this.height = height;
     }
 
+    public int getLastHeartRate() { return lastHeartRate; }
+
+    public void setLastHeartRate(int lastHeartRate) { this.lastHeartRate = lastHeartRate; }
+
     public Timestamp getBirthDate() {
         return birthDate;
     }
 
     public void setBirthDate(Timestamp birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public int getAge() {
+        if (getBirthDate() == null)
+            return -1;
+
+        Date birth = getBirthDate().toDate();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
+
+        dob.setTime(birth);
+
+        int year = dob.get(Calendar.YEAR);
+        int month = dob.get(Calendar.MONTH);
+        int day = dob.get(Calendar.DAY_OF_MONTH);
+
+        dob.set(year, month + 1, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR))
+            age--;
+
+        return age;
     }
 
     public Map<String, Object> getHashedData() {

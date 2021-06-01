@@ -58,7 +58,7 @@ public class LoginFragment extends Fragment {
     }
 
     public View onCreateView(
-            @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.login_page, container, false);
 
@@ -89,8 +89,8 @@ public class LoginFragment extends Fragment {
         view.findViewById(R.id.debug_button).setOnClickListener(view1 -> {
             User.currentUser = new User(null, "hamzaezzaouirahali@gmail.com",
                 "Hamza Ezzaoui Rahali", null, (Uri) null,
-                0, 0, new Timestamp(0, 0));
-            ((NavigationHost) LoginFragment.this.getActivity()).navigateTo(
+                0, 0, null);
+            ((NavigationHost) Objects.requireNonNull(LoginFragment.this.getActivity())).navigateTo(
                 new DashboardFragment(), false);
         });
 
@@ -157,6 +157,7 @@ public class LoginFragment extends Fragment {
             .addOnCompleteListener(Objects.requireNonNull(LoginFragment.this.getActivity()), task -> {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
+                    Log.w("UserId", user.getUid());
                     User.currentUser = new User(user.getUid(), user.getEmail(),
                         user.getDisplayName(), user.getPhoneNumber(), user.getPhotoUrl(),
                         0, 0, new Timestamp(0, 0));

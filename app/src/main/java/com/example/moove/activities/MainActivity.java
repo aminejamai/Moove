@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
                         User.currentUser.setHeight(documentSnapshot.getLong("height"));
                         User.currentUser
                             .setBirthDate(documentSnapshot.getTimestamp("birthDate"));
+                        User.currentUser.setLastHeartRate(Integer.parseInt((Objects.requireNonNull(documentSnapshot.getLong("lastHeartRate")).toString())));
                     }
-//                    Log.d("User", User.currentUser.toString());
 
                     progressDialog.dismiss();
                     getSupportFragmentManager()
@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
     @Override
     public void navigateTo(Fragment fragment, boolean addToStack) {
         FragmentTransaction transaction = getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.container, fragment);
+            .beginTransaction()
+            .replace(R.id.container, fragment);
 
         if (addToStack)
             transaction.addToBackStack(null);

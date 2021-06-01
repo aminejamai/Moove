@@ -9,4 +9,15 @@
     <color name="on_secondary">#FF000000</color>
     <color name="on_primary">#FFFFFFFF</color>
     <color name="gray">#FFCCCCCC</color>
+
+    <color name="grey">#E7EDFE</color>
+    <color name="grey1">#DCDBDC</color>
+    <color name="grey_light">#F5F5F5</color>
+    <color name="contentTextColor">#020000</color>
+    <color name="miniTitleColor">#6F6A6A</color>
+    <color name="gradientViolet">#8A52E9</color>
+    <color name="gradientLightBlue">#376DF6</color>
+    <color name="gradientLightGreen">#21E8AC</color>
+    <color name="gradientLightOrange2">#FF7765</color>
+    <color name="gradientOrange3">#F7A23C</color>
 </resources>

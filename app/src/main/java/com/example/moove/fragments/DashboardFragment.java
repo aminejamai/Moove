@@ -29,8 +29,9 @@ import com.google.android.material.navigation.NavigationView.OnNavigationItemSel
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
-public class DashboardFragment extends Fragment implements OnNavigationItemSelectedListener {
+import java.util.Objects;
 
+public class DashboardFragment extends Fragment implements OnNavigationItemSelectedListener {
     private HomeFragment homeFragment;
     private WorkoutFragment workoutFragment;
     private HeartFragment heartFragment;
@@ -164,9 +165,9 @@ public class DashboardFragment extends Fragment implements OnNavigationItemSelec
         bottomNavigation.setOnReselectListener(item -> {});
     }
 
-    private void loadFragment(Fragment fragment) {
+    public void loadFragment(Fragment fragment) {
         if (fragment != null) {
-            DashboardFragment.this.getActivity().getSupportFragmentManager()
+            Objects.requireNonNull(DashboardFragment.this.getActivity()).getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.dash_scroll_view, fragment)
                 .commit();

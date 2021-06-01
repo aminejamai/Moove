@@ -12,7 +12,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Heart Monitor"
-        android:textColor="@color/on_secondary"
+        android:textColor="@color/vivid_red"
         android:textSize="@dimen/_24ssp"
         app:layout_constraintTop_toTopOf="parent" />
 

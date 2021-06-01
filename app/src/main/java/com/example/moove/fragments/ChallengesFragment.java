@@ -31,7 +31,7 @@ import java.util.Objects;
 public class ChallengesFragment extends Fragment {
 
     private int numOfGuests = 1;
-    private List<Test> tests = new ArrayList<Test>();
+    private final List<Test> tests = new ArrayList<Test>();
 
     private class Test {
         private String name;
