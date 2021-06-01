@@ -6,6 +6,9 @@ public class Test {
     private String desc;
     private String localisation;
 
+    public Test(String name){
+        this.name = name;
+    }
     public Test(String name, String desc, String localisation){
         this.desc = desc;
         this.name = name;

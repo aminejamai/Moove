@@ -8,6 +8,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -131,5 +132,9 @@ public class ChallengesActivity extends AppCompatActivity {
                 }, nHour, nMin, false);
             }
         });
+    }
+
+    public void printDetails(View view){
+        System.out.println((EditText)findViewById(R.id.editText));
     }
 }
